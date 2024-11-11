@@ -218,7 +218,7 @@ class AdminController extends Controller
             'brand_id' => 'required'
         ]);
 
-        $product = Product::find($request->id);
+        $product = new Product();
         $product->name = $request->name;
         $product->slug = Str::slug($request->name);
         $product->short_description = $request->short_description;

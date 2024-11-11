@@ -26,7 +26,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     @stack('styles')
 </head>
 
@@ -409,7 +409,7 @@
                             <a href="{{route('home.index')}}" class="navigation__link">Home</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="shop.html" class="navigation__link">Shop</a>
+                            <a href="{{route('shop.index')}}" class="navigation__link">Shop</a>
                         </li>
                         <li class="navigation__item">
                             <a href="cart.html" class="navigation__link">Cart</a>
