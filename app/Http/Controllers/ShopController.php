@@ -15,6 +15,8 @@ class ShopController extends Controller
         $o_order = '';
         $order = $request->query('order') ? $request->query('order') : -1;
         $f_brands = $request->query('brands');
+        $min_price = $request->query('min') ? $request->query('min') : 1;
+        $max_price = $request->query('max') ? $request->query('max') : 500;
         switch($order) {
             case 1:
                 $o_column = 'created_at';
@@ -42,7 +44,7 @@ class ShopController extends Controller
             $query->whereIn('brand_id', explode(',', $f_brands))->orWhereRaw("'".$f_brands."' = ''");
         })
         ->orderBy($o_column, $o_order)->paginate($size);
-        return view('shop', compact('products', 'size', 'order', 'brands', 'f_brands', 'categories'));
+        return view('shop', compact('products', 'size', 'order', 'brands', 'f_brands', 'categories', 'min_price', 'max_price'));
     }
 
     public function product_details($product_slug) {
